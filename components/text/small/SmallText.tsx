@@ -4,5 +4,5 @@ type props = {
 }
 
 export default function SmallText({ text, isBold }: props) {
-  return <div className={`text-sm ${isBold ?? 'font-semibold'}`}>{text}</div>
+  return <p className={`text-sm ${isBold ?? 'font-semibold'}`}>{text}</p>
 }

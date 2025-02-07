@@ -33,3 +33,11 @@ npm i @hookform/resolvers
 npm i react-icons
 
 ```
+
+### avator
+
+```
+
+npm i boring-avatars
+
+```
