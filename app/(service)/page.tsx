@@ -1,6 +1,5 @@
 import Image from 'next/image';
 
-import Header from '@/components/header/Header';
 import { articles } from '@/data/Article';
 
 import Content from './_components/content/Content';
@@ -10,12 +9,11 @@ import Menu from './_components/menu/Menu';
 const Page = () => {
   return (
     <section className='w-full min-h-screen'>
-      <Header />
-      <div className='max-w-screen-md mx-auto p-2'>
+      <div className='max-w-screen-md mx-auto px-2 pb-16'>
         {articles.map((article) => (
           <div
             key={article.getId()}
-            className='w-full bg-white shadow-lg rounded-lg px-2 py-4 my-2 space-y-2'
+            className='w-full bg-white shadow-lg rounded-lg py-4 my-2 space-y-2'
           >
             <ArticleHeader
               title={article.getTitle()}

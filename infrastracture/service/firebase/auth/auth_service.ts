@@ -11,7 +11,6 @@ import { isFirebaseError } from '../exception/types/FirebaseErrorType';
 
 export class AuthService implements AuthRepository {
   /** 認証処理 */
-
   /**
    * Google認証
    * @returns　ユーザ情報

@@ -70,6 +70,10 @@ export class ArticleDB {
     this.image = image
   }
 
+  setCreatedAt(createdAt: Date): void {
+    this.createdAt = createdAt
+  }
+
   setUpdatedAt(updatedAt: Date | null): void {
     this.updatedAt = updatedAt
   }

@@ -10,7 +10,7 @@ type props = {
 export default function ArticleHeader({ title, username }: props) {
   return (
     <div className='w-full px-2 flex justify-between items-center'>
-      <MediumText text={title} />
+      <MediumText text={title} isBold={true} />
       <UserInfo username={username} />
     </div>
   )

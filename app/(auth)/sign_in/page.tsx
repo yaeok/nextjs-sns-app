@@ -1,8 +1,11 @@
+import Header from '@/components/header/Header';
+
 const Page = () => {
   return (
-    <div>
-      <div>サインイン画面</div>
-    </div>
+    <section className='w-full min-h-screen flex flex-col items-center justify-center'>
+      <Header />
+      <div></div>
+    </section>
   )
 }
 

@@ -15,7 +15,7 @@ export default function Menu({ favoriteOfNumber }: props) {
     <div className='w-full flex items-center px-2'>
       <div className='flex-1 flex items-center gap-2'>
         <FavoriteButton />
-        <SmallText text={favoriteOfNumber.toString()} />
+        <SmallText text={favoriteOfNumber.toString()} isBold={true} />
         <CommentButton />
       </div>
       <ThreeDotsButton />
