@@ -4,5 +4,5 @@ type props = {
 }
 
 export default function MediumText({ text, isBold }: props) {
-  return <div className={`text-lg ${isBold ?? 'font-semibold'}`}>{text}</div>
+  return <p className={`text-lg ${isBold ?? 'font-semibold'}`}>{text}</p>
 }

@@ -4,5 +4,5 @@ type props = {
 }
 
 export default function LargeText({ text, isBold }: props) {
-  return <div className={`text-2xl ${isBold ?? 'font-semibold'}`}>{text}</div>
+  return <p className={`text-2xl ${isBold ?? 'font-semibold'}`}>{text}</p>
 }
