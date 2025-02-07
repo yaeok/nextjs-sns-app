@@ -1,0 +1,11 @@
+/** firebaseのエラー */
+type FirebaseErrorType = {
+  code: string
+  message: string
+  name: string
+}
+
+// firebaseのエラーかどうかを判定する
+export const isFirebaseError = (e: Error): e is FirebaseErrorType => {
+  return 'code' in e && 'message' in e
+}
