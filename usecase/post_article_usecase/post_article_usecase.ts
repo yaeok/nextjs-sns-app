@@ -1,10 +1,8 @@
-import { Article } from '@/domain/entities/article';
-import { ArticleRepository } from '@/domain/repositories/article';
-import {
-  FirestoreArticleService
-} from '@/infrastracture/service/firebase/firestore/firestore_article_service';
+import { Article } from '@/domain/entities/article'
+import { ArticleRepository } from '@/domain/repositories/article'
+import { FirestoreArticleService } from '@/infrastracture/service/firebase/firestore/firestore_article_service'
 
-import { Usecase, UsecaseInput, UsecaseOutput } from '../usecase';
+import { Usecase, UsecaseInput, UsecaseOutput } from '../usecase'
 
 interface PostArticleUsecaseInput extends UsecaseInput {
   title: string

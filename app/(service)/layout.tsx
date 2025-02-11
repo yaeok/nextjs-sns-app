@@ -1,5 +1,6 @@
 import Header from '@/components/header/Header';
 import NavBar from '@/components/navbar/NavBar';
+import { CurrentUserProvider } from '@/providers/CurrentUserProvider';
 
 export default function RootLayout({
   children,
@@ -7,10 +8,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <div className='w-full h-screen'>
-      <Header />
-      {children}
-      <NavBar />
-    </div>
+    <CurrentUserProvider>
+      <div className='w-full h-screen'>
+        <Header />
+        {children}
+        <NavBar />
+      </div>
+    </CurrentUserProvider>
   )
 }

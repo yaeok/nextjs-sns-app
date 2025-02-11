@@ -1,8 +1,10 @@
+import Avatar from 'boring-avatars'
+
 import MediumText from '@/components/text/medium/MediumText'
 import SmallText from '@/components/text/small/SmallText'
 import { articles } from '@/data/Article'
-import Avatar from 'boring-avatars'
-import Image from 'next/image'
+
+import ArticleGrid from './_components/grid/ArticleGrid'
 
 export const Page = async ({
   params,
@@ -13,7 +15,7 @@ export const Page = async ({
 }) => {
   const id = (await params).id
   return (
-    <div className='max-w-screen-md mx-auto pb-16'>
+    <div className='max-w-screen-md mx-auto pb-12'>
       <div className='flex items-center gap-4 p-4'>
         <Avatar size='85px' name={id} variant='bauhaus' />
         <div className='flex flex-col gap-2'>
@@ -39,18 +41,7 @@ export const Page = async ({
       <div className='p-4'>
         <button>プロフィール編集</button>
       </div>
-      <div className='grid grid-cols-3'>
-        {articles.map((article) => (
-          <Image
-            key={article.getId()}
-            src={article.getImage()}
-            alt='Article'
-            className='w-full object-cover aspect-square'
-            width={200}
-            height={200}
-          />
-        ))}
-      </div>
+      <ArticleGrid articles={articles} />
     </div>
   )
 }

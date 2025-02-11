@@ -1,6 +1,6 @@
-import BaseModal from '@/components/modal/BaseModal';
+import BaseModal from '@/components/modal/BaseModal'
 
-import ArticleForm from '../form/ArticleForm';
+import ArticleForm from '../form/ArticleForm'
 
 type props = {
   isOpen: boolean
@@ -8,7 +8,12 @@ type props = {
 }
 export default function ArticleModal({ isOpen, onClose }: props) {
   return (
-    <BaseModal isOpen={isOpen} onClose={onClose} text='記事投稿' width='w-full'>
+    <BaseModal
+      isOpen={isOpen}
+      onClose={onClose}
+      text='記事投稿'
+      width='w-full max-w-md'
+    >
       <ArticleForm />
     </BaseModal>
   )

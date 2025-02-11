@@ -4,7 +4,7 @@ import { User, UserCredential } from '@firebase/auth';
 export interface AuthRepository {
   /** 認証処理 */
   /**　Google認証 */
-  signInWithGoogle(): Promise<UserCredential>
+  signInWithGoogle(): Promise<UserCredential | null>
   /** メール認証 */
   signInWithEmail(email: string, password: string): Promise<UserCredential>
   signUpWithEmail(email: string, password: string): Promise<UserCredential>

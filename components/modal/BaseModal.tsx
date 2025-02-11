@@ -20,7 +20,7 @@ const BaseModal = ({ isOpen, onClose, text, children, width }: props) => {
             className={`relative p-4 mx-2 bg-white flex flex-col gap-4 rounded-lg shadow-lg ${width}`}
           >
             <div className='w-full flex flex-row justify-between items-center'>
-              <MediumText text={text} isBold={false} />
+              <MediumText text={text} isBold={true} />
               <button onClick={onClose}>
                 <RiCloseCircleFill size={30} />
               </button>

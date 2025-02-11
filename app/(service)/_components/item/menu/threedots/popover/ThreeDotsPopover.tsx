@@ -2,8 +2,9 @@
 
 import Link from 'next/link'
 import { JSX, useEffect, useRef, useState } from 'react'
-
 import { BsThreeDots } from 'react-icons/bs'
+
+import SmallText from '@/components/text/small/SmallText'
 
 export default function ThreeDotsPopover(): JSX.Element {
   const [isOpen, setIsOpen] = useState(false)
@@ -43,15 +44,13 @@ export default function ThreeDotsPopover(): JSX.Element {
         <BsThreeDots />
       </button>
       {isOpen && (
-        <div className='absolute -left-16 top-6 transform -translate-x-1/2 p-6 w-max bg-white border rounded-lg shadow-lg text-sm text-blue-gray-500'>
-          <ul className='space-y-6'>
+        <div className='absolute -left-8 top-0 transform -translate-x-1/2 p-4 w-max bg-white border rounded-lg shadow-lg text-sm text-blue-gray-500'>
+          <ul className='space-y-2'>
             <li>
-              <Link
-                href='/sign_in'
-                className='px-6 py-2 text-sm bg-green-500 rounded-full shadow-md text-white font-semibold'
-              >
-                ログイン
-              </Link>
+              <SmallText text='報告する' isBold={false} />
+            </li>
+            <li>
+              <SmallText text='保存する' isBold={false} />
             </li>
           </ul>
         </div>

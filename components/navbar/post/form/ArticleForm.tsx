@@ -1,7 +1,7 @@
-import { useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form'
 
-import ElevatedButton from '@/components/button/submit/elevated/ElevatedButton';
-import { PostArticleUsecase } from '@/usecase/post_article_usecase/post_article_usecase';
+import ElevatedButton from '@/components/button/submit/elevated/ElevatedButton'
+import { PostArticleUsecase } from '@/usecase/post_article_usecase/post_article_usecase'
 
 type FormType = {
   title: string
@@ -61,7 +61,7 @@ export default function ArticleForm() {
                 message: '1000文字以内で入力してください',
               },
             })}
-            className='w-full p-2 border border-gray-300 rounded-md max-h-44 text-sm'
+            className='w-full p-2 border border-gray-300 rounded-md h-32 max-h-64 text-sm'
           />
           {errors.content && (
             <span className='pl-2 text-sm text-red-500'>

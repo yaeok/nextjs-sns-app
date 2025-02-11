@@ -15,7 +15,10 @@ export default function UserInfo({ username }: props) {
     router.push(`/account/${username}`)
   }
   return (
-    <div className='flex items-center gap-2' onClick={handleClick}>
+    <div
+      className='flex items-center gap-2 cursor-pointer'
+      onClick={handleClick}
+    >
       <Avatar size='35px' name={username} variant='bauhaus' />
       <SmallText text={username} isBold={false} />
     </div>

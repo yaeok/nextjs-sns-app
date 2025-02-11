@@ -11,6 +11,11 @@ export class FirestoreArticleService implements ArticleRepository {
   private path = 'articles'
 
   /** データ取得系 */
+
+  /**
+   * findAll 全ての記事情報を取得
+   * @returns ArticleDB[]
+   */
   async findAll(): Promise<ArticleDB[]> {
     try {
       const ref = collection(db, this.path)
@@ -29,6 +34,12 @@ export class FirestoreArticleService implements ArticleRepository {
       throw new Error('記事の取得に失敗しました')
     }
   }
+
+  /**
+   * findById 記事Idから記事情報を取得
+   * @param args.id 記事Id
+   * @returns ArticleDB
+   */
   async findById(args: { id: string }): Promise<ArticleDB> {
     try {
       const ref = collection(db, this.path)
@@ -50,6 +61,12 @@ export class FirestoreArticleService implements ArticleRepository {
       throw new Error('記事の取得に失敗しました')
     }
   }
+
+  /**
+   * findByUserId ユーザIdから記事情報を取得
+   * @param args.userId ユーザId
+   * @returns ArticleDB[]
+   */
   async findByUserId(args: { userId: string }): Promise<ArticleDB[]> {
     try {
       const ref = collection(db, this.path)
@@ -73,6 +90,12 @@ export class FirestoreArticleService implements ArticleRepository {
   }
 
   /** データ更新系 */
+  /**
+   * post 記事を記事
+   * @param args.article 記事
+   * @param args.userId ユーザId
+   * @returns ArticleDB
+   */
   async post(args: { article: Article; userId: string }): Promise<ArticleDB> {
     try {
       const { article, userId } = args
@@ -102,9 +125,15 @@ export class FirestoreArticleService implements ArticleRepository {
       // データを返却
       return resopnse
     } catch (error: any) {
-      throw new Error('記事の投稿に失敗しました')
+      throw new Error('記事の記事に失敗しました')
     }
   }
+
+  /**
+   * update 記事を更新
+   * @param args.article 記事
+   * @returns ArticleDB
+   */
   async update(args: { article: Article }): Promise<ArticleDB> {
     try {
       const { article } = args
@@ -129,6 +158,12 @@ export class FirestoreArticleService implements ArticleRepository {
       throw new Error('記事の更新に失敗しました')
     }
   }
+
+  /**
+   * delete 記事を削除
+   * @param args.id 記事Id
+   * @returns void
+   */
   async delete(args: { id: string }): Promise<void> {
     try {
       const ref = doc(db, this.path, args.id)
