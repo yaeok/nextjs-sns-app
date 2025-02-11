@@ -1,10 +1,12 @@
-import { FaRegHeart } from 'react-icons/fa6';
+import { FaRegHeart } from 'react-icons/fa6'
 
 export default function FavoriteButton() {
   const handleFavorite = () => {}
   return (
     <>
-      <FaRegHeart />
+      <button onClick={handleFavorite} className='rounded-full'>
+        <FaRegHeart />
+      </button>
     </>
   )
 }

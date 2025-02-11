@@ -1,10 +1,10 @@
 'use client'
 
-import SmallText from '@/components/text/small/SmallText';
+import SmallText from '@/components/text/small/SmallText'
 
-import CommentButton from './comment/button/CommentButton';
-import FavoriteButton from './favorite/button/FavoriteButton';
-import ThreeDotsButton from './threedots/button/ThreeDotsButton';
+import CommentButton from './comment/button/CommentButton'
+import FavoriteButton from './favorite/button/FavoriteButton'
+import ThreeDotsPopover from './threedots/popover/ThreeDotsPopover'
 
 type props = {
   favoriteOfNumber: number
@@ -18,7 +18,7 @@ export default function Menu({ favoriteOfNumber }: props) {
         <SmallText text={favoriteOfNumber.toString()} isBold={true} />
         <CommentButton />
       </div>
-      <ThreeDotsButton />
+      <ThreeDotsPopover />
     </div>
   )
 }

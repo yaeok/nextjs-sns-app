@@ -1,6 +1,6 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
-import ArticleButton from './post/button/ArticleButton';
+import ArticleButton from './post/button/ArticleButton'
 
 export default function NavBar() {
   return (
@@ -11,7 +11,7 @@ export default function NavBar() {
             <span className='text-base font-semibold'>投稿一覧</span>
           </Link>
           <ArticleButton />
-          <Link href='/' className='flex-1 py-4 text-center'>
+          <Link href={`/account/${'user'}`} className='flex-1 py-4 text-center'>
             <span className='text-base font-semibold'>マイページ</span>
           </Link>
         </div>

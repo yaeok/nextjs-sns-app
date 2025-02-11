@@ -1,9 +1,9 @@
 'use client'
 
-import Avatar from 'boring-avatars';
-import { useRouter } from 'next/navigation';
+import Avatar from 'boring-avatars'
+import { useRouter } from 'next/navigation'
 
-import SmallText from '@/components/text/small/SmallText';
+import SmallText from '@/components/text/small/SmallText'
 
 type props = {
   username: string
@@ -12,7 +12,7 @@ type props = {
 export default function UserInfo({ username }: props) {
   const router = useRouter()
   const handleClick = () => {
-    console.log('User info clicked')
+    router.push(`/account/${username}`)
   }
   return (
     <div className='flex items-center gap-2' onClick={handleClick}>
