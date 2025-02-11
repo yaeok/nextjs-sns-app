@@ -1,6 +1,6 @@
 import { RiCloseCircleFill } from 'react-icons/ri';
 
-import LargeText from '../text/large/LargeText';
+import MediumText from '../text/medium/MediumText';
 
 type props = {
   isOpen: boolean
@@ -20,9 +20,9 @@ const BaseModal = ({ isOpen, onClose, text, children, width }: props) => {
             className={`relative p-4 mx-2 bg-white flex flex-col gap-4 rounded-lg shadow-lg ${width}`}
           >
             <div className='w-full flex flex-row justify-between items-center'>
-              <LargeText text={text} />
+              <MediumText text={text} isBold={true} />
               <button onClick={onClose}>
-                <RiCloseCircleFill size={35} />
+                <RiCloseCircleFill size={30} />
               </button>
             </div>
             {children}

@@ -1,8 +1,10 @@
 type props = {
   text: string
-  isBold?: boolean
+  isBold: boolean
 }
 
-export default function SmallText({ text, isBold }: props) {
-  return <p className={`text-sm ${isBold ?? 'font-semibold'}`}>{text}</p>
+export default function SmallText({ text, isBold = false }: props) {
+  return (
+    <p className={`text-sm ${isBold == true ? 'font-semibold' : ''}`}>{text}</p>
+  )
 }

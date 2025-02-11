@@ -1,3 +1,5 @@
+import { ArticleDB } from '@/infrastracture/data/article';
+
 export class Article {
   private id: string
   private title: string
@@ -6,7 +8,7 @@ export class Article {
   private image: string
   private favoritesCount: number
   private createdAt: Date
-  private updatedAt: Date
+  private updatedAt: Date | null
 
   constructor() {
     this.id = ''
@@ -16,7 +18,7 @@ export class Article {
     this.image = ''
     this.favoritesCount = 0
     this.createdAt = new Date()
-    this.updatedAt = new Date()
+    this.updatedAt = null
   }
 
   getId(): string {
@@ -47,7 +49,7 @@ export class Article {
     return this.createdAt
   }
 
-  getUpdatedAt(): Date {
+  getUpdatedAt(): Date | null {
     return this.updatedAt
   }
 
@@ -79,7 +81,7 @@ export class Article {
     this.createdAt = createdAt
   }
 
-  setUpdatedAt(updatedAt: Date): void {
+  setUpdatedAt(updatedAt: Date | null): void {
     this.updatedAt = updatedAt
   }
 
@@ -91,7 +93,7 @@ export class Article {
     image: string
     favoritesCount: number
     createdAt: Date
-    updatedAt: Date
+    updatedAt: Date | null
   }): Article {
     const article = new Article()
     article.id = args.id
@@ -103,5 +105,23 @@ export class Article {
     article.createdAt = args.createdAt
     article.updatedAt = args.updatedAt
     return article
+  }
+
+  static convertDataToEntity(args: {
+    data: ArticleDB
+    username: string
+    favoritesCount: number
+  }): Article {
+    const { data, username, favoritesCount } = args
+    return Article.create({
+      id: data.getId(),
+      title: data.getTitle(),
+      content: data.getContent(),
+      username: username,
+      image: data.getImage(),
+      favoritesCount: favoritesCount,
+      createdAt: data.getCreatedAt(),
+      updatedAt: data.getUpdatedAt() ? data.getUpdatedAt() : null,
+    })
   }
 }

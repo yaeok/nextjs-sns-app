@@ -11,12 +11,11 @@ import { isFirebaseError } from '../exception/types/FirebaseErrorType';
 
 export class AuthService implements AuthRepository {
   /** 認証処理 */
-
   /**
    * Google認証
    * @returns　ユーザ情報
    */
-  async signInWithGoogle(): Promise<UserCredential> {
+  async signInWithGoogle(): Promise<UserCredential | null> {
     try {
       // Google認証を行う
       const result = await signInWithPopup(auth, googleAuth)
@@ -25,8 +24,13 @@ export class AuthService implements AuthRepository {
       return result
     } catch (error: any) {
       if (isFirebaseError(error)) {
+        console.log(error)
         const { message, code } = this.handleFirebaseAuthError(error)
         // Firebaseのエラーをハンドリング
+
+        if (code === 'auth/popup-closed-by-user') {
+          return null
+        }
         throw new FirebaseAuthException(code, message)
       } else {
         throw new SystemErrorException()
@@ -230,6 +234,13 @@ export class AuthService implements AuthRepository {
     code: string
   } {
     let message
+
+    if (error.code === 'auth/popup-closed-by-user') {
+      return {
+        message: 'Google認証がキャンセルされました',
+        code: error.code,
+      }
+    }
     switch (error.code) {
       case 'auth/user-not-found':
         message = '認証情報が見つかりません'

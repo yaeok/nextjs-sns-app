@@ -6,13 +6,11 @@ import { JSX, useEffect, useRef, useState } from 'react';
 
 import { User } from '@/domain/entities/user';
 
-type PopoverButtonProps = {
+type props = {
   currentUser: User | null
 }
 
-export default function PopoverButton({
-  currentUser,
-}: PopoverButtonProps): JSX.Element {
+export default function PopoverButton({ currentUser }: props): JSX.Element {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const popoverRef = useRef<HTMLDivElement | null>(null)
 
