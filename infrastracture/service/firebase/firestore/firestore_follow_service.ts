@@ -1,6 +1,5 @@
-import { Follow } from '@/domain/entities/follow';
-import { FollowRepository } from '@/domain/repositories/follow';
-import { FollowDB } from '@/infrastracture/data/follow';
+import { FollowRepository } from '@/domain/repositories/follow'
+import { FollowDB } from '@/infrastracture/data/follow'
 
 export class FirestoreFollowService implements FollowRepository {
   getFollowersByUserId(args: { userId: string }): Promise<FollowDB[]> {

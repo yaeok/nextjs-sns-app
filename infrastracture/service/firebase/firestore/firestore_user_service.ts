@@ -1,18 +1,22 @@
-import { User } from '@/domain/entities/user';
-import { UserRepository } from '@/domain/repositories/user';
-import { UserDB } from '@/infrastracture/data/user';
+import { User } from '@/domain/entities/user'
+import { UserRepository } from '@/domain/repositories/user'
+import { UserDB } from '@/infrastracture/data/user'
 import {
-  collection, doc, DocumentData, getDoc, getDocs, query, setDoc, where
-} from '@firebase/firestore';
+  collection,
+  doc,
+  DocumentData,
+  getDoc,
+  getDocs,
+  query,
+  setDoc,
+  where,
+} from '@firebase/firestore'
 
-import { db } from '../config/config';
+import { db } from '../config/config'
 
 export class FirestoreUserService implements UserRepository {
   private path: string = 'users'
 
-  findAll(): Promise<User[]> {
-    throw new Error('Method not implemented.')
-  }
   async findById(args: { id: string }): Promise<UserDB> {
     try {
       const { id } = args
