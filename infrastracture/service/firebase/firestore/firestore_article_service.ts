@@ -1,11 +1,18 @@
-import { Article } from '@/domain/entities/article';
-import { ArticleRepository } from '@/domain/repositories/article';
-import { ArticleDB } from '@/infrastracture/data/article';
+import { Article } from '@/domain/entities/article'
+import { ArticleRepository } from '@/domain/repositories/article'
+import { ArticleDB } from '@/infrastracture/data/article'
 import {
-  addDoc, collection, doc, DocumentData, getDocs, query, updateDoc, where
-} from '@firebase/firestore';
+  addDoc,
+  collection,
+  doc,
+  DocumentData,
+  getDocs,
+  query,
+  updateDoc,
+  where,
+} from '@firebase/firestore'
 
-import { db } from '../config/config';
+import { db } from '../config/config'
 
 export class FirestoreArticleService implements ArticleRepository {
   private path = 'articles'

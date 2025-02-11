@@ -1,13 +1,17 @@
-import { AuthRepository } from '@/domain/repositories/auth';
-import { SystemErrorException } from '@/infrastracture/exception/SystemErrorException';
-import { UserNotFoundException } from '@/infrastracture/exception/UserNotFoundException';
+import { AuthRepository } from '@/domain/repositories/auth'
+import { SystemErrorException } from '@/infrastracture/exception/SystemErrorException'
+import { UserNotFoundException } from '@/infrastracture/exception/UserNotFoundException'
 import {
-  sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, User, UserCredential
-} from '@firebase/auth';
+  sendEmailVerification,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  User,
+  UserCredential,
+} from '@firebase/auth'
 
-import { auth, googleAuth } from '../config/config';
-import { FirebaseAuthException } from '../exception/FirebaseAuthException';
-import { isFirebaseError } from '../exception/types/FirebaseErrorType';
+import { auth, googleAuth } from '../config/config'
+import { FirebaseAuthException } from '../exception/FirebaseAuthException'
+import { isFirebaseError } from '../exception/types/FirebaseErrorType'
 
 export class AuthService implements AuthRepository {
   /** 認証処理 */
@@ -24,7 +28,6 @@ export class AuthService implements AuthRepository {
       return result
     } catch (error: any) {
       if (isFirebaseError(error)) {
-        console.log(error)
         const { message, code } = this.handleFirebaseAuthError(error)
         // Firebaseのエラーをハンドリング
 
